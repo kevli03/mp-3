@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Home from "./components/mains/Home";
+import Education from "./components/mains/Education";
+import Research from "./components/mains/Research";
+import Experience from "./components/mains/Experience";
+import Projects from "./components/mains/Projects";
+import Knowledge from "./components/mains/Knowledge";
+import Skills from "./components/mains/Skills";
+import Credits from "./components/mains/Credits";
+import Footer from "./components/Footer";
+import { createBrowserRouter, Route, RouterProvider, Routes } from "react-router";
+import styled from "styled-components";
 
-function App() {
-  const [count, setCount] = useState(0)
+const Wrapper = styled.div`
+    width: 92vw;
+    margin: 0 auto;
+`;
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    background-color: lightsteelblue;
+    @media screen and (max-width: 750px) {
+        display: flex;
+        flex-direction: column;
+    }
+`;
+
+function Root() {
+    return (
+        <div>
+            <Wrapper>
+                <Header />
+                <Container>
+                    <Nav />
+                    <Routes>
+                        <Route path={"/"} element={<Home />} />
+                        <Route path={"/education"} element={<Education />} />
+                        <Route path={"/research"} element={<Research />} />
+                        <Route path={"/experience"} element={<Experience />} />
+                        <Route path={"/projects"} element={<Projects />} />
+                        <Route path={"/knowledge"} element={<Knowledge />} />
+                        <Route path={"/skills"} element={<Skills />} />
+                        <Route path={"/credits"} element={<Credits />} />
+                    </Routes>
+                </Container>
+                <Footer />
+            </Wrapper>
+        </div>
+    );
 }
 
-export default App
+const router = createBrowserRouter([{ path: "*", Component: Root }]);
+
+export default function App () {
+    return <RouterProvider router={router}/>
+}
