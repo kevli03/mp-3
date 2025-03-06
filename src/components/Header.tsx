@@ -6,7 +6,7 @@ const StyledHeader = styled.header`
     padding: 1vh 1vw;
     background-color: darkolivegreen;
     font-family: Arial, Helvetica, "Helvetica Neue", sans-serif;
-    @media screen and (max-width: 750px) {
+    @media (max-width: 750px) {
         text-align: center;
     }
 `;

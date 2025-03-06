@@ -21,7 +21,7 @@ const Container = styled.div`
     display: flex;
     flex-direction: row;
     background-color: lightsteelblue;
-    @media screen and (max-width: 750px) {
+    @media (max-width: 750px) {
         display: flex;
         flex-direction: column;
     }
@@ -29,25 +29,23 @@ const Container = styled.div`
 
 function Root() {
     return (
-        <div>
-            <Wrapper>
-                <Header />
-                <Container>
-                    <Nav />
-                    <Routes>
-                        <Route path={"/"} element={<Home />} />
-                        <Route path={"/education"} element={<Education />} />
-                        <Route path={"/research"} element={<Research />} />
-                        <Route path={"/experience"} element={<Experience />} />
-                        <Route path={"/projects"} element={<Projects />} />
-                        <Route path={"/knowledge"} element={<Knowledge />} />
-                        <Route path={"/skills"} element={<Skills />} />
-                        <Route path={"/credits"} element={<Credits />} />
-                    </Routes>
-                </Container>
-                <Footer />
-            </Wrapper>
-        </div>
+        <Wrapper>
+            <Header />
+            <Container>
+                <Nav />
+                <Routes>
+                    <Route path={"/"} element={<Home />} />
+                    <Route path={"/education"} element={<Education />} />
+                    <Route path={"/research"} element={<Research />} />
+                    <Route path={"/experience"} element={<Experience />} />
+                    <Route path={"/projects"} element={<Projects />} />
+                    <Route path={"/knowledge"} element={<Knowledge />} />
+                    <Route path={"/skills"} element={<Skills />} />
+                    <Route path={"/credits"} element={<Credits />} />
+                </Routes>
+            </Container>
+            <Footer />
+        </Wrapper>
     );
 }
 
