@@ -4,8 +4,8 @@ const StyledOutput = styled.p`
     color: red;
 `;
 
-export default function Calculator(props : {num1: number, num2: number, func: string}) {
-    function Calculate(num1: number, num2: number, func: string) {
+export default function Calculator(props : {num1: number, num2: number, setNum1: React.Dispatch<React.SetStateAction<number>>, setNum2:  React.Dispatch<React.SetStateAction<number>>, func: string}) {
+    function Calculate(num1: number, num2: number, setNum1:  React.Dispatch<React.SetStateAction<number>>, setNum2:  React.Dispatch<React.SetStateAction<number>>, func: string) {
         let result: number = 0;
 
         if (isNaN(num1) || isNaN(num2) ) {
@@ -46,17 +46,19 @@ export default function Calculator(props : {num1: number, num2: number, func: st
                 return "Result not computable";
             }
         } else if (func === "Clear") {
+            setNum1(0);
+            setNum2(0);
             return null;
         }
 
         if (result < 0) {
-            return <StyledOutput>String(result)</StyledOutput>;
+            return <StyledOutput>{String(result)}</StyledOutput>;
         } else {
             return String(result);
         }
     }
 
     return (
-        Calculate(props.num1, props.num2, props.func)
+        Calculate(props.num1, props.num2, props.setNum1, props.setNum2, props.func)
     );
 }

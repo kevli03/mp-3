@@ -71,7 +71,7 @@ export default function Projects() {
     const [num1, setNum1] = useState(0);
     const [num2, setNum2] = useState(0);
     const [func, setFunc] = useState("");
-
+    
     return (
         <StyledMain>
             <Title>Projects</Title>
@@ -115,7 +115,9 @@ export default function Projects() {
                 <Button onClick={() => setFunc("Clear")}>Clear</Button>
             </Buttons>
 
-            <Output>return <Calculator props={num1, num2, func} /></Output>
+            <Output>
+                <Calculator num1={num1} num2={num2} setNum1={setNum1} setNum2={setNum2} func={func} />
+            </Output>
         </StyledMain>
     );
 }

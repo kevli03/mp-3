@@ -9,6 +9,7 @@ import Knowledge from "./components/mains/Knowledge";
 import Skills from "./components/mains/Skills";
 import Credits from "./components/mains/Credits";
 import Footer from "./components/Footer";
+import MakeTitle from "./components/MakeTitle.tsx";
 import { createBrowserRouter, Route, RouterProvider, Routes } from "react-router";
 import styled from "styled-components";
 
@@ -28,6 +29,8 @@ const Container = styled.div`
 `;
 
 function Root() {
+    MakeTitle();
+
     return (
         <Wrapper>
             <Header />
